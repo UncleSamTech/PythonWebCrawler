@@ -1,0 +1,36 @@
+/*
+A python script that sevrves helps us navigate through an webpage and prints out all 
+the links in the webpage. We are assuming that all our links should always start with
+@values <a href = 
+We are also declaring a variable named
+@var page_content which is to hold any webpage content and also another variable named
+@var start_link which will hold the index of our first occurence of the 
+@values <a href = 
+We will then use that help locate the first occurence of our quote of our link 
+
+Please note that the version of this pyhton code as at when it was written is python3.4
+*/
+//This variable page content holds all the content of our web page we wish to crawl through
+page_content = 'any web page content'
+//The variable start_link locates the first position of occurence of "<a href = "
+start_link = page_content.find('<a href')
+/**The variable locates the position of the first occurence of 
+double quote starting from where the '<a href = '  first occured thereby passing
+a second parameter of 
+@params start_link
+*/
+start_quote = page_content.find('"', start_link)
+/**The variable end_quote holds the end quote for the url we've found
+by using the find method and passing two parameters
+@params "" which is the quote we are looking for the second parameter
+@params start_link + 1 which is starting from position of the occurrence of the first quote
+and adding one to it so as to get the next occurence
+*/
+end_quote = page_content.find('"', start_link + 1)
+This variable link will extract only link without the quotes attached
+link_url = page_content[start_quote + 1: end_quote]
+//This will print our first url for us
+print(link_url)
+
+
+
