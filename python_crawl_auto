@@ -1,0 +1,30 @@
+A python script that sevrves helps us navigate through an webpage and prints out all 
+the links in the webpage. We are assuming that all our links should always start with
+@values <a href = 
+We are also declaring a variable named
+@var page_content which is to hold any webpage content and also another variable named
+@var start_link which will hold the index of our first occurence of the 
+@values <a href = 
+We will then use that help locate the first occurence of our quote of our link 
+This is an update on the first version of our web crawler
+While the first goes through the page content and prints out the first url, this one creates a procedure that 
+goes through all the page and get's the remaining link.
+This procedure is set up with an arguement
+@args page_content which will be used to get remaining url
+The procedure is named get_all_url which returns two values namely 
+@val link_url and 
+@val end_quote
+Please note that the version of this pyhton code as at when it was written is python3.4
+Let's dive In ! !
+
+*/
+//This variable page content holds all the content of our web page we wish to crawl through
+page_content = 'any web page content'
+
+def get_all_url(page_content):
+  start_link = page_content.find('<a href')
+  start_quote = page_content.find('"', start_link)
+  end_quote = page_content.find('"', start_link + 1)
+  link_url = page_content[start_quote + 1: end_quote]
+  return(link_url, end_quote)
+  
